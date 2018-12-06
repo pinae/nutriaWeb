@@ -8,18 +8,18 @@
 <body>
     <noscript>Diese Webanwendung läuft nicht ohne JavaScript.</noscript>
     <main>
-        <input type="search" autofocus v-model:value="searchStr" v-on:input="handleSearchRequest">
+        <input class="foodSearch" type="search" autofocus v-model:value="searchStr" v-on:input="handleSearchRequest">
         <ul class="searchResults">
             <li class="foodName" v-for="result in searchResults" v-on:click="selectFood(result[0])">
-                {{ result[1] }}
+               <span>{{ result[1] }}</span>
             </li>
         </ul>
-        <div id="foodDetails" v-if="foodDetails">
+        <div class="foodDetails" v-if="foodDetails">
             <h1>{{ foodDetails.name }}</h1>
             <p class="author" v-if="foodDetails.author">{{ foodDetails.author }}</p>
-            <p class="creationDate">Hinzugefügt am {{ foodDetails.creation_date }}</p>
+            <p class="creationDate">Hinzugefügt am <time datetime="{{ foodDetails.creation_date }}">{{ foodDetails.creation_date }}<time></p>
             <p class="manufacturer" v-if="foodDetails.manufacturer">{{ foodDetails.manufacturer }}</p>
-            <table>
+            <table class="nutritionTable">
                 <tr><td>Referenzmenge</td><td>{{ foodDetails.reference_amount }}</td></tr>
                 <tr><td>Kalorien</td><td>{{ foodDetails.calories }} kcal</td></tr>
                 <tr v-if="foodDetails.total_fat">

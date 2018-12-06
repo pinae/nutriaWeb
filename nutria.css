@@ -1,4 +1,77 @@
-body {
-    background-color: white;
-    color: black;
+@import 'normalize.css';
+html {
+  line-height: 1.5;
 }
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", sans-serif, "Arial";
+  font-size: 14px;
+}
+body main {
+  margin: 0 auto;
+  margin-top: 42px;
+  max-width: 40%;
+}
+body main .foodSearch {
+  border: 1px solid #FFA500;
+  width: 100%;
+  padding: 0.5em;
+  font-size: 18.2px;
+  font-weight: bold;
+  transition: box-shadow 0.5s;
+}
+body main .foodSearch:focus {
+  box-shadow: 0px 0px 3px 1px #FFA500;
+}
+body main .searchResults {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.5em;
+  padding-top: 5.6px;
+  border: 1px solid #FFA500;
+  border-top: none;
+}
+body main .searchResults li {
+  cursor: pointer;
+  padding: 7px;
+  line-height: 1.8em;
+  vertical-align: middle;
+  transition: background 0.5s;
+}
+body main .searchResults li span {
+  display: inline-block;
+  vertical-align: middle;
+}
+body main .searchResults li:nth-child(even) {
+  background: #ccc;
+}
+body main .searchResults li:hover {
+  background: #FFA500;
+}
+body main .foodDetails {
+  border: 1px solid #FFA500;
+}
+body main .foodDetails > h1 {
+  padding: 28px 7px;
+  margin-top: 0;
+  background: #ffdb99;
+}
+body main .foodDetails > p {
+  margin: 7px;
+}
+body main .foodDetails > .nutritionTable {
+  margin: 4.6666666667px;
+  padding: 0;
+}
+body main .foodDetails > .nutritionTable tr:nth-child(even) {
+  background: #ccc;
+}
+body main .foodDetails > .nutritionTable tr td {
+  padding: 0.25em;
+}
+body main .foodDetails time {
+  font-style: italic;
+}
+
+/*# sourceMappingURL=nutria.css.map */

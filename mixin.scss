@@ -1,0 +1,5 @@
+@mixin even() {
+  &:nth-child(even) {
+    @content
+  }
+}
