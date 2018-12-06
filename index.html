@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutria Datenbank</title>
+    <link rel="stylesheet" href="nutria.css">
+</head>
+<body>
+    <noscript>Diese Webanwendung läuft nicht ohne JavaScript.</noscript>
+    <main>
+        <input type="search" autofocus v-model:value="searchStr" v-on:input="handleSearchRequest">
+        <ul class="searchResults">
+            <li class="foodName" v-for="result in searchResults" v-on:click="selectFood(result[0])">
+                {{ result[1] }}
+            </li>
+        </ul>
+        <div id="foodDetails" v-if="foodDetails">
+            <h1>{{ foodDetails.name }}</h1>
+            <p class="author" v-if="foodDetails.author">{{ foodDetails.author }}</p>
+            <p class="creationDate">Hinzugefügt am {{ foodDetails.creation_date }}</p>
+            <p class="manufacturer" v-if="foodDetails.manufacturer">{{ foodDetails.manufacturer }}</p>
+            <table>
+                <tr><td>Referenzmenge</td><td>{{ foodDetails.reference_amount }}</td></tr>
+                <tr><td>Kalorien</td><td>{{ foodDetails.calories }} kcal</td></tr>
+                <tr v-if="foodDetails.total_fat">
+                    <td>Fett</td><td>{{ foodDetails.total_fat }} g</td></tr>
+                <tr v-if="foodDetails.saturated_fat">
+                    <td>davon gesättigte Fettsäuren</td><td>{{ foodDetails.saturated_fat }} g</td></tr>
+                <tr v-if="foodDetails.cholesterol">
+                    <td>Cholesterin</td><td>{{ foodDetails.cholesterol }} mg</td></tr>
+                <tr v-if="foodDetails.protein">
+                    <td>Eiweiß</td><td>{{ foodDetails.protein }} g</td></tr>
+            </table>
+        </div>
+    </main>
+    <script src="vue.min.js"></script>
+    <script src="backend.js"></script>
+</body>
+</html>
